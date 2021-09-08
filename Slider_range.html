@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <link rel="stylesheet" href="slider.css">
+</head>
+<body id="background">
+    <div class="main">
+        <input type="range" min ="0" max="100" value="5" id ="slider">
+        <div id="selector">
+            <div class="selectButton"></div>
+            <div id="SelectorVal"></div>
+        </div>
+        <div id="progress"></div>
+    </div>
+    <script>
+        const slider = document.getElementById('slider');
+        const selector = document.getElementById('selector');
+        const SelectorVal = document.getElementById('SelectorVal');
+        const progress = document.getElementById('progress');
+        const background = document.getElementById('background');
+
+        SelectorVal.innerHTML = slider.value;
+        
+        slider.oninput = function(){
+            const sum = this.value *3;
+            background.style.backgroundColor = "rgb("+ sum +",0,0)";
+            SelectorVal.innerHTML = this.value;
+            selector.style.left = this.value + "%";
+            progress.style.width = this.value + "%";
+            
+
+           
+        }
+    </script>
+</body>
+</html>
